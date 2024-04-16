@@ -3,7 +3,8 @@ id_atestado INT(11) PRIMARY KEY,
 resultado_riscos VARCHAR(100) NOT NULL,
 resultado VARCHAR(100) NOT NULL,
 observacoes VARCHAR(300) NOT NULL,
-FOREIGN KEY
+medico_id INT(11) NOT NULL,
+CONSTRAINT medico_id FOREIGN KEY (medico_id) REFERENCES Medico(id_medico)
 );
 
 CREATE TABLE IF NOT EXISTS Cargo (
@@ -60,6 +61,17 @@ cpf VARCHAR(20) NOT NULL,
 data_nascimento DATE NOT NULL,
 endereco VARCHAR(200) NOT NULL,
 telefone VARCHAR(20) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Medico (
+id_medico INT(11) PRIMARY KEY,
+cm INT(11) NOT NULL,
+nome VARCHAR(100) NOT NULL,
+cpf VARCHAR(20) NOT NULL,
+especialidade VARCHAR(50) NOT NULL,
+data_nascimento DATE NOT NULL,
+endereco VARCHAR(200) NOT NULL,
+telefone VARCHAR(20)
 );
 
 
